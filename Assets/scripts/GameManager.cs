@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public Text timeTxt;
+    float timme;
     // Start is called before the first frame update
     void Start()
     {
