@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
 
     public GameObject failsuccessTxt;
-    public GameObject endTxt;
+
     public GameObject firstCard;
     public GameObject secondCard;
 
@@ -73,14 +73,6 @@ public class GameManager : MonoBehaviour
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
             failsuccessTxt.GetComponent<SuccessFailTxt>().SetText(firstCardImage.Substring(0,3));
-
-            int cardsLeft = GameObject.Find("Cards").transform.childCount;
-            if (cardsLeft == 2)
-            {
-                endTxt.SetActive(true);
-                Time.timeScale = 0.0f;
-            }
-
         }
         else
         {
