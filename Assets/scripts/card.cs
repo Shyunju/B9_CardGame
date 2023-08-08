@@ -5,6 +5,8 @@ using UnityEngine;
 public class card : MonoBehaviour
 {
     public Animator anim;
+    float waitTime = 0.0f;
+    bool isFlipping = false;
     public void openCard()
     {
         anim.SetBool("isOpen", true);
@@ -15,12 +17,28 @@ public class card : MonoBehaviour
         if (GameManager.I.firstCard == null)
         {
             GameManager.I.firstCard = gameObject;
+            isFlipping = true;
         }
         else
         {
             GameManager.I.secondCard = gameObject;
             GameManager.I.checkMatched();
         }
+    }
+
+    void Update()
+    {
+        if(isFlipping == true)
+        {
+            waitTime += Time.deltaTime;
+
+            if (waitTime > 5.0f && GameManager.I.secondCard == null)
+            {
+                closeCardInvoke();
+                GameManager.I.firstCard = null;
+            }
+        }
+          
     }
 
     public void destroyCard()
@@ -40,6 +58,8 @@ public class card : MonoBehaviour
 
     void closeCardInvoke()
     {
+        isFlipping = false;
+        waitTime = 0.0f;
         anim.SetBool("isOpen", false);
         transform.Find("back").gameObject.SetActive(true);
         transform.Find("front").gameObject.SetActive(false);
