@@ -1,2 +1,6 @@
+# Starting compiling Unity.PlasticSCM.Editor.dll
+C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-5830b178241898e4f98d71678c632bbc
+# Starting compiling Unity.CollabProxy.Editor.dll
+C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-f1433496ca09cc047ae01ed020cbda74
 # Starting compiling Assembly-CSharp.dll
-C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-c4e3af5ec23dd0d4dae9d954e7034651
+C:\Program Files\Unity\Hub\Editor\2020.3.21f1\Editor\Data\Tools\RoslynScripts\unity_csc.bat /noconfig @Temp/UnityTempFile-fc1e7147b5ee41042bdcb5bfb51032fc
