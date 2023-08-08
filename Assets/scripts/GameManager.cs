@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager I;
 
+    public GameObject failsuccessTxt;
+
     public GameObject firstCard;
     public GameObject secondCard;
 
@@ -55,12 +57,14 @@ public class GameManager : MonoBehaviour
             count++;
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
+            failsuccessTxt.GetComponent<SuccessFailTxt>().SetText(firstCardImage.Substring(0,3));
         }
         else
         {
             count++;
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
+            failsuccessTxt.GetComponent<SuccessFailTxt>().SetText("½ÇÆÐ!!");
         }
         firstCard = null;
         secondCard = null;

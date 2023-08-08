@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class card : MonoBehaviour
 {
+    public Animator anim;
     public void openCard()
     {
-        //anim.SetBool("isOpen", true);
+        anim.SetBool("isOpen", true);
         transform.Find("front").gameObject.SetActive(true);
-        transform.Find("back").gameObject.SetActive(false);
-
+        GameObject back = transform.Find("back").gameObject;
+        back.SetActive(false);
+        back.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1);
         if (GameManager.I.firstCard == null)
         {
             GameManager.I.firstCard = gameObject;
@@ -38,7 +40,7 @@ public class card : MonoBehaviour
 
     void closeCardInvoke()
     {
-        //anim.SetBool("isOpen", false);
+        anim.SetBool("isOpen", false);
         transform.Find("back").gameObject.SetActive(true);
         transform.Find("front").gameObject.SetActive(false);
     }
