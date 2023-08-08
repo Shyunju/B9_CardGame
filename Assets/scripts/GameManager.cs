@@ -48,15 +48,16 @@ public class GameManager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
+            count++;
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
         }
         else
         {
-            firstCard.GetComponent<card>().closeCard();
-            secondCard.GetComponent<card>().closeCard();
+            count++;
+            firstCard.GetComponent<card>().closedCard();
+            secondCard.GetComponent<card>().closedCard();
         }
-
         firstCard = null;
         secondCard = null;
     }
