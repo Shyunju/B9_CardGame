@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
             failsuccessTxt.GetComponent<SuccessFailTxt>().SetText("½ÇÆÐ!!");
+            time += 5f;
         }
         firstCard = null;
         secondCard = null;
