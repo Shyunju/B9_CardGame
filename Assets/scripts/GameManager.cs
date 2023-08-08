@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     public GameObject secondCard;
 
     public Text timeTxt;
+    public Text tryTxt;
+    int count;
     float time;
     public GameObject card;
 
@@ -22,6 +24,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        count = 0;
         for (int i = 0; i < 16; i++)
         {
             GameObject newCard = Instantiate(card);
@@ -38,6 +41,7 @@ public class GameManager : MonoBehaviour
     {
         time += Time.deltaTime;
         timeTxt.text = time.ToString("N2");
+        tryTxt.text = count.ToString();
     }
 
 
@@ -48,15 +52,16 @@ public class GameManager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
+            count++;
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
         }
         else
         {
+            count++;
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
         }
-
         firstCard = null;
         secondCard = null;
     }
