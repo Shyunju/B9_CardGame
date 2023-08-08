@@ -53,8 +53,8 @@
     <UnityVersion>2020.3.21f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\scripts\GameManager.cs" />
     <Compile Include="Assets\scripts\startBtn.cs" />
+    <Compile Include="Assets\scripts\GameManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
