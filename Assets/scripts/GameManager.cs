@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager I;
 
     public GameObject failsuccessTxt;
-
+    public GameObject endTxt;
     public GameObject firstCard;
     public GameObject secondCard;
 
@@ -27,16 +27,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        string[] membersName = { "박희원", "박희원","고영현", "고영현","신현주", "신현주","김준영" ,"김준영"};
-        List<string> imageNames = new List<string>(); 
+        string[] membersName = { "박희원", "박희원", "고영현", "고영현", "신현주", "신현주", "김준영", "김준영" };
+        List<string> imageNames = new List<string>();
 
-        foreach(string name in membersName)
+        foreach (string name in membersName)
         {
             for (int i = 0; i < 2; i++)
-                imageNames.Add(name + i.ToString()); 
+                imageNames.Add(name + i.ToString());
         }
 
-        imageNames = imageNames.OrderBy(itme => Random.Range(-1.0f, 1.0f)).ToList(); 
+        imageNames = imageNames.OrderBy(itme => Random.Range(-1.0f, 1.0f)).ToList();
 
         count = 0;
         for (int i = 0; i < 16; i++)
@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
             float y = (i % 4) * 1.4f - 3.0f;
             newCard.transform.position = new Vector3(x, y, 0);
 
-            string membersImageName = imageNames[i]; 
+            string membersImageName = imageNames[i];
             newCard.transform.Find("front").GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(membersImageName);
         }
     }
@@ -72,7 +72,15 @@ public class GameManager : MonoBehaviour
             count++;
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
-            failsuccessTxt.GetComponent<SuccessFailTxt>().SetText(firstCardImage.Substring(0,3));
+            failsuccessTxt.GetComponent<SuccessFailTxt>().SetText(firstCardImage.Substring(0, 3));
+
+            int cardsLeft = GameObject.Find("Cards").transform.childCount;
+            if (cardsLeft == 2)
+            {
+                endTxt.SetActive(true);
+                Time.timeScale = 0.0f;
+
+            }
         }
         else
         {
@@ -85,4 +93,5 @@ public class GameManager : MonoBehaviour
         firstCard = null;
         secondCard = null;
     }
+
 }
