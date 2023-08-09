@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     public GameObject firstCard;
     public GameObject secondCard;
+    public GameObject EndingCanvas;
     GameObject tmi;
 
     public Text timeTxt;
@@ -118,7 +119,7 @@ public class GameManager : MonoBehaviour
 
     public void end()
     {
-        endTxt.SetActive(true);
+        EndingCanvas.SetActive(true);
         Time.timeScale = 0.0f;
     }
 
