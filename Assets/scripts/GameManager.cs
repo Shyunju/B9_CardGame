@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public GameObject endTxt;
     public GameObject firstCard;
     public GameObject secondCard;
+    GameObject tmi;
 
     public Text timeTxt;
     public Text tryTxt;
@@ -31,6 +32,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        tmi = GameObject.Find("tmi");
+        tmi.GetComponent<tmiTxt>().makeArray();
         Time.timeScale = 1.0f;
 
         string[] membersName = { "박희원", "박희원", "고영현", "고영현", "신현주", "신현주", "김준영", "김준영" };
@@ -97,6 +100,7 @@ public class GameManager : MonoBehaviour
             {
                 end();
             }
+            tmi.GetComponent<tmiTxt>().settingTmi(firstCardImage.Substring(0, 3), firstCardImage.Substring(3, 1));
         }
         else
         {
