@@ -22,6 +22,9 @@ public class GameManager : MonoBehaviour
 
     public Text timeTxt;
     public Text tryTxt;
+    public Text scoreTxt;
+    public Text bestScoreTxt;
+
     int count;
     float time = 60.0f;
     public GameObject card;
@@ -100,6 +103,19 @@ public class GameManager : MonoBehaviour
             int cardsLeft = GameObject.Find("Cards").transform.childCount;
             if (cardsLeft == 2)
             {
+                if (PlayerPrefs.GetFloat("bestTime") == 0f)
+                {
+                    PlayerPrefs.SetFloat("bestTime", time);
+                }
+                else
+                {
+                    if (time > PlayerPrefs.GetFloat("bestTime"))
+                    {
+                        PlayerPrefs.SetFloat("bestTime", time);
+                    }
+                }
+                scoreTxt.text = time.ToString();
+                bestScoreTxt.text = PlayerPrefs.GetFloat("bestTime").ToString();
                 end();
             }
         }
