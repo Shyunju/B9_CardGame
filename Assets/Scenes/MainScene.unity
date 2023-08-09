@@ -1301,6 +1301,7 @@ GameObject:
   - component: {fileID: 1394234272}
   - component: {fileID: 1394234271}
   - component: {fileID: 1394234270}
+  - component: {fileID: 1394234273}
   m_Layer: 5
   m_Name: tocredit
   m_TagString: Untagged
@@ -1371,7 +1372,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1394234271}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1394234273}
+        m_TargetAssemblyTypeName: toEnding, Assembly-CSharp
+        m_MethodName: GoToEndingScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1394234271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1410,6 +1423,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1394234268}
   m_CullTransparentMesh: 1
+--- !u!114 &1394234273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1394234268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a3485f1af3ffe146a400a8cd3479e1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1502480066
 GameObject:
   m_ObjectHideFlags: 0
