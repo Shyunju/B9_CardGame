@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     public Text tryTxt;
     int count;
-    float time = 30.0f;
+    float time = 60.0f;
     public GameObject card;
 
     void Awake()
@@ -94,13 +94,13 @@ public class GameManager : MonoBehaviour
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
             failsuccessTxt.GetComponent<SuccessFailTxt>().SetText(firstCardImage.Substring(0, 3));
+            tmi.GetComponent<tmiTxt>().settingTmi(firstCardImage.Substring(0, 3), firstCardImage.Substring(3, 1));
 
             int cardsLeft = GameObject.Find("Cards").transform.childCount;
             if (cardsLeft == 2)
             {
                 end();
             }
-            tmi.GetComponent<tmiTxt>().settingTmi(firstCardImage.Substring(0, 3), firstCardImage.Substring(3, 1));
         }
         else
         {

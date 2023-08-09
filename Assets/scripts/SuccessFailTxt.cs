@@ -11,7 +11,7 @@ public class SuccessFailTxt : MonoBehaviour
     {
         successText.text = name;
         this.gameObject.SetActive(true);
-        Invoke("popupSet", 0.5f);
+        Invoke("popupSet", 3f);
     }
 
     public void popupSet()

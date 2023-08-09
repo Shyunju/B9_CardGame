@@ -21,7 +21,7 @@ public class tmiTxt : MonoBehaviour
         park[0] = "실제 얼굴보다 순하게 나와서 아주 만족하는 사진이다";
         park[1] = "J 100% 로 습관성 계획을 한다";
 
-        go[0] = "";
+        go[0] = "힙찔이 이다";
         go[1] = "MBTI는 INTJ이다";
 
         shin[0] = "해양 생물을 좋아한다";
