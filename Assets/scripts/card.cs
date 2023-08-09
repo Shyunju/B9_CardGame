@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class card : MonoBehaviour
 {
+    public AudioClip flip;
+    public AudioSource audioSource; 
+
     public Animator anim;
     float waitTime = 0.0f;
     bool isFlipping = false;
     public void openCard()
     {
+        audioSource.PlayOneShot(flip); 
+
         anim.SetBool("isOpen", true);
         transform.Find("front").gameObject.SetActive(true);
         GameObject back = transform.Find("back").gameObject;

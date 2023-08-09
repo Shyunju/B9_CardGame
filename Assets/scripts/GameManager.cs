@@ -9,6 +9,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager I;
 
+    public AudioClip match;
+    public AudioClip fail; 
+    public AudioSource audioSource; 
+
     public GameObject failsuccessTxt;
     public GameObject endTxt;
     public GameObject firstCard;
@@ -17,7 +21,7 @@ public class GameManager : MonoBehaviour
     public Text timeTxt;
     public Text tryTxt;
     int count;
-    float time;
+    float time = 30.0f;
     public GameObject card;
 
     void Awake()
@@ -56,9 +60,18 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time -= Time.deltaTime;
         timeTxt.text = time.ToString("N2");
         tryTxt.text = count.ToString();
+
+        if (time < 10)
+        {
+            timeTxt.color = Color.red;
+        }
+        else if (time <= 0)
+        {
+            end();
+        }
     }
 
 
@@ -69,6 +82,8 @@ public class GameManager : MonoBehaviour
 
         if (firstCardImage == secondCardImage)
         {
+            audioSource.PlayOneShot(match); 
+
             count++;
             firstCard.GetComponent<card>().destroyCard();
             secondCard.GetComponent<card>().destroyCard();
@@ -77,21 +92,27 @@ public class GameManager : MonoBehaviour
             int cardsLeft = GameObject.Find("Cards").transform.childCount;
             if (cardsLeft == 2)
             {
-                endTxt.SetActive(true);
-                Time.timeScale = 0.0f;
-
+                end();
             }
         }
         else
         {
+            audioSource.PlayOneShot(fail); 
+            
             count++;
             firstCard.GetComponent<card>().closeCard();
             secondCard.GetComponent<card>().closeCard();
             failsuccessTxt.GetComponent<SuccessFailTxt>().SetText("½ÇÆÐ!!");
-            time += 5f;
+            time -= 5f;
         }
         firstCard = null;
         secondCard = null;
+    }
+
+    public void end()
+    {
+        endTxt.SetActive(true);
+        Time.timeScale = 0.0f;
     }
 
 }
