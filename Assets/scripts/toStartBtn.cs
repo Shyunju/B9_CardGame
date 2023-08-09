@@ -7,6 +7,7 @@ public class toStartBtn : MonoBehaviour
 {
     public void GoToStartScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("StartScene");
     }
 }

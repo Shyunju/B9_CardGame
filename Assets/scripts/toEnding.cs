@@ -7,6 +7,7 @@ public class toEnding : MonoBehaviour
 {
     public void GoToEndingScene()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("EndingScene");
     }
 }

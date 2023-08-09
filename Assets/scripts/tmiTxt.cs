@@ -27,7 +27,6 @@ public class tmiTxt : MonoBehaviour
         shin[0] = "해양 생물을 좋아한다";
         shin[1] = "가장 최근 여행지는 말레이시아 이다";
 
-        Debug.Log("배열생성");
 
     }
     public void settingTmi(string name, string number)
