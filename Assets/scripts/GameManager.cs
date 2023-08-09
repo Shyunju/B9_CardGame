@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Time.timeScale = 1.0f;
+
         string[] membersName = { "박희원", "박희원", "고영현", "고영현", "신현주", "신현주", "김준영", "김준영" };
         List<string> imageNames = new List<string>();
 
@@ -68,8 +70,9 @@ public class GameManager : MonoBehaviour
         {
             timeTxt.color = Color.red;
         }
-        else if (time <= 0)
+        if (time <= 0)
         {
+            time = 0;
             end();
         }
     }

@@ -12,13 +12,9 @@ public class card : MonoBehaviour
     bool isFlipping = false;
     public void openCard()
     {
-        audioSource.PlayOneShot(flip); 
-
+        audioSource.PlayOneShot(flip);
         anim.SetBool("isOpen", true);
-        transform.Find("front").gameObject.SetActive(true);
-        GameObject back = transform.Find("back").gameObject;
-        back.SetActive(false);
-        back.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+        Invoke("openCardInvoke", 0.4f);
         if (GameManager.I.firstCard == null)
         {
             GameManager.I.firstCard = gameObject;
@@ -68,5 +64,13 @@ public class card : MonoBehaviour
         anim.SetBool("isOpen", false);
         transform.Find("back").gameObject.SetActive(true);
         transform.Find("front").gameObject.SetActive(false);
+    }
+
+    void openCardInvoke()
+    {
+        GameObject back = transform.Find("back").gameObject;
+        transform.Find("front").gameObject.SetActive(true);
+        back.SetActive(false);
+        back.GetComponent<SpriteRenderer>().color = new Color(0.5f, 0.5f, 0.5f, 1);
     }
 }
